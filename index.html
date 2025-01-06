@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio Interativo</title>
+  <style>
+    /* Ajuste de layout para dispositivos móveis */
+    @media (max-width: 600px) {
+      .menu-title {
+        font-size: 1.2em;
+        padding: 12px;
+      }
+
+      .menu-items ul {
+        padding-left: 20px; /* Ajusta a indentação das listas em dispositivos móveis */
+      }
+
+      .menu-items {
+        padding: 8px 15px;
+      }
+
+      h1 {
+        font-size: 1.8em; /* Ajusta o título para um tamanho mais adequado */
+      }
+
+      footer {
+        font-size: 0.9em; /* Reduz o tamanho da fonte no rodapé para economizar espaço */
+      }
+    }
+
+    header {
+      background-color: #070705;
+      background-image: url('canarrero2.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 300px;
+      color: #955D08;
+      padding: 15px;
+      text-align: center;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #070705;
+      color: #f5e3a1; 
+    }
+
+    .menu-section {
+      margin: 20px;
+    }
+
+    .menu-title {
+      cursor: pointer;
+      font-size: 1.5em;
+      background-color: #4a3821;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .menu-title:hover {
+      background-color: #6b4f2e;
+    }
+
+    .menu-items {
+      display: none; 
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .menu-items ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-items li {
+      margin: 5px 0;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .menu-items ul li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+    }
+
+    .item-name {
+      font-weight: normal;
+      color: #f5e3a1; 
+    }
+
+    .item-price {
+      font-weight: normal;
+      color: #f5e3a1; 
+}
+
+    .menu-divider {
+        height: 2px;
+        background-color: #955D08;
+        border-color: #955D08;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+}
+
+    hr {
+        height: 2px;
+        background-color: #955D08;
+        border-color: #955D08;
+        margin-top: 50px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    footer{
+        text-align: center;
+        padding: 10px 20px;
+        margin-top: 10px;
+    }
+    footer a {
+        color: #955D08;
+    }
+    footer a:hover {
+        color: aliceblue;
+    }
+  </style>
+</head>
+<header></header>
+<body>
+  <h1 style="text-align: center;">Menu</h1>
+
+  <div class="menu-section">
+    <div class="menu-title" onclick="toggleMenu('cafeteria')">Cafeteria</div>
+    <div class="menu-items" id="cafeteria">
+      <ul>
+        <li>Café - 1.50€</li>
+        <li>Carioca - 1€</li>
+        <li>Descafeinado - 1.50€</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title" onclick="toggleMenu('Bebidas e refrigerantes')">Bebidas e refrigerantes</div>
+    <div class="menu-items" id="Bebidas e refrigerantes">
+      <ul>
+        <li>Água - 1.70€</li>
+        <li>Água com groselha - 2€</li>
+        <li>Água das pedras - 2.50€</li>
+        <li>Água das pedras limão/maracujá - 2.50€</li>
+        <li>Castello/Castello limão - 2.50€</li>
+        <li>Coca-Cola/Coca-Cola zero - 2.50€</li>
+        <li>Ice tea limão/pêssego - 2.50€</li>
+        <li>7up - 2.50€</li>
+        <li>Redbull - 4.50€</li>
+        <li>Ginger Ale - 2.50€</li>
+        <li>Tónica - 2.50€</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title" onclick="toggleMenu('Cerveja')">Cerveja</div>
+    <div class="menu-items" id="Cerveja">
+      <ul>
+        <li>Fino - 2€</li>
+        <li>Príncipe - 2.70€</li>
+        <li>Caneca - 4.50€</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <div class="menu-title" onclick="toggleMenu('Whisky')">Whisky</div>
+    <div class="menu-items" id="Whisky">
+      <ul>
+        <li>J&B - SHOT 3€ / COPO 5€ / GARRAFA 60€</li>
+        <li>Jack Daniels - SHOT 3.50€ / COPO 6.50€ / GARRAFA 70€</li>
+        <li>Jack Daniels Maçã - SHOT 4€ / COPO 8€ / GARRAFA 80€</li>
+        <li>Jack Daniels Honey - SHOT 4€ / COPO 8€ / GARRAFA 80€</li>
+        <li>Red label - SHOT 3.50€ / COPO 5€/ GARRAFA 90€</li>
+        <li>Black label - SHOT 5€ / COPO 10€ / GARRAFA 110€</li>
+        <li>Gold label - SHOT  € / COPO  € / GARRAFA 150€</li>
+        <li>Green label - SHOT € / COPO € / GARRAFA 140€</li>
+      </ul>
+    </div>
+  </div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Gin')">Gin</div>
+<div class="menu-items" id="Gin">
+  <ul>
+    <li>Gordon's - COPO 7€ / GARRAFA 50€</li>
+    <li>Bombay Sapphire - COPO 8€ / GARRAFA 60€</li>
+    <li>Bull Dog - COPO 9€ / GARRAFA 80€</li>
+    <li>Hendricks - COPO 11€ / GARRAFA 100€</li>
+    <li>beefeater24 - COPO 8€ / GARRAFA 80€</li>
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Vodka')">Vodka</div>
+<div class="menu-items" id="Vodka">
+  <ul>
+    <li>Eristoff/Eristoff Black - 15€</li>
+    <li>Absolut - 25€</li>
+    <li>Ciroc/Ciroc Sabores - 12€</li>
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Cocktails')">Cocktails</div>
+<div class="menu-items" id="Cocktails">
+  <ul>
+    <li>Caipirinha - 5€</li>
+    <li>Caipirinha maracujá - 6€</li>
+    <li>Caipirinha morango - 6€</li>
+    <li>Caipiroska - 7€</li>
+    <li>Caipiblack - 7€</li>
+    <li>Mojito - 6€</li>
+    <li>Mojito Sabores - 7€</li>
+    <li>Margarita - 10€</li>
+    <li>Tequila Sunrise - 7€</li>
+    <li>Safari Cola - 5€</li>
+    <li>Cuba livre - 6€</li>
+    <li>Daiquiri - 6€</li>
+    <li>Long Island Ice-tea - 9€</li>
+    <li>Blue Lagoon - 6.5€</li>
+    <li>Pornstar Martini - 10€</li>
+    <li>Expresso Martini - 10€</li>
+    <li>Negroni - 8€</li>    
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Sangrias')">Sangrias</div>
+<div class="menu-items" id="Sangrias">
+  <ul>
+    <li>Sangria de maracujá - 20€</li>
+    <li>Sangria de frutos vermelhos - 20€</li>
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Shishas')">Shishas</div>
+<div class="menu-items" id="Shishas">
+  <ul>
+    <li>Shisha - 20€</li>
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Shisha sabores')">Shisha sabores</div>
+<div class="menu-items" id="Shisha sabores">
+  <ul>
+    <li>LOVE 66 (FRUTOS EXÓTICOS, MENTA)</li>
+    <li>BAKUH NIGHTS (TUTTI-FRUTI, MENTA)</li>
+    <li>MI AMOR (ANANÁS, BANANA, MENTOL)</li>
+    <li>LADY KILLER (MELÃO, MANGA, PÊSSEGO, MENTA)</li>
+    <li>A-AWAY (MANGA, ABACAXI, MENTA)</li>
+    <li>KIZZ (MENTA)</li>
+    <li>SWISS BOOM (BOMBOM SUÍÇO)</li>
+    <hr class="menu-divider">
+    <h3>Sabores premium (+2.50€)</h3>
+    <li>KIWI</li>
+    <li>KAKTUZ</li>
+    <li>PERA GELADA</li>
+    <li>FRAMBOESA CHOCOLATE BRANCO</li>    
+    <li>TARTE DE CARAMELO</li> 
+    
+  </ul>
+</div>
+</div>
+
+<div class="menu-section">
+    <div class="menu-title" onclick="toggleMenu('Shisha complementos')">Shisha complementos</div>
+    <div class="menu-items" id="Shisha complementos">
+      <ul>
+        <li>Troca de essência - 7.50€</li>
+        <li>Primeira troca de carvão - Oferta</li>
+        <li>Troca de carvão seguintes - 2€</li>
+      </ul>
+    </div>
+    </div>
+
+<div class="menu-section">
+<div class="menu-title" onclick="toggleMenu('Comidas')">Comidas</div>
+<div class="menu-items" id="Comidas">
+  <ul>
+    <li>Hambúrguer - 8€</li>
+    <li>Tosta de queijo - 2.50€</li>
+    <li>Tosta de fiambre - 2.50€</li>
+    <li>Tosta mista - 3€</li>
+  </ul>
+</div>
+</div>
+
+  <script>
+    function toggleMenu(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block"; 
+      } else {
+        section.style.display = "none"; 
+      }
+    }
+  </script>
+  <hr>
+  <footer>
+    <p>Venda de bebidas alcoólicas e produtos com nicotina proibida a menores de 18 anos.</p>
+    <p>Preços incluem IVA à taxa legal em vigor.</p>
+    <a href="https://www.instagram.com/canarrero_shisha_lounge?igsh=dzhzMWpyajNoem0y" target="_blank">@canarrero_shisha_lounge</a>
+</footer>
+</body>
+</html>
+
+<script>
+  // Seleciona todas as listas de itens
+  const menuSections = document.querySelectorAll('.menu-items ul li');
+
+  // Itera por cada item da lista
+  menuSections.forEach(item => {
+    const text = item.textContent.trim(); // Obtém o texto do <li>
+    const parts = text.split(' - '); // Divide pelo separador " - "
+
+    if (parts.length === 2) {
+      // Cria os spans para o nome e o preço
+      const itemName = document.createElement('span');
+      itemName.classList.add('item-name');
+      itemName.textContent = parts[0];
+
+      const itemPrice = document.createElement('span');
+      itemPrice.classList.add('item-price');
+      itemPrice.textContent = parts[1];
+
+      // Limpa o conteúdo do <li> e insere os spans
+      item.textContent = '';
+      item.appendChild(itemName);
+      item.appendChild(itemPrice);
+    }
+  });
+</script>
