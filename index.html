@@ -47,6 +47,7 @@
       padding: 0;
       background-color: #070705;
       color: #f5e3a1; 
+      margin-bottom: 20px;
     }
 
     .menu-section {
@@ -141,8 +142,7 @@
     <div class="menu-items" id="cafeteria">
       <ul>
         <li>Café - 1.50€</li>
-        <li>Carioca - 1€</li>
-        <li>Descafeinado - 1.50€</li>
+        <li>Chá - 1.50€</li>
       </ul>
     </div>
   </div>
@@ -303,6 +303,7 @@
     <li>Tosta de queijo - 2.50€</li>
     <li>Tosta de fiambre - 2.50€</li>
     <li>Tosta mista - 3€</li>
+    <li>Nuggets - 3€</li>
   </ul>
 </div>
 </div>
@@ -333,6 +334,12 @@
   // Itera por cada item da lista
   menuSections.forEach(item => {
     const text = item.textContent.trim(); // Obtém o texto do <li>
+
+    // Verifica se o item está nas seções Whisky ou Gin
+    if (item.closest('.whisky') || item.closest('.gin')) {
+      return; // Ignora esses itens e passa para o próximo
+    }
+
     const parts = text.split(' - '); // Divide pelo separador " - "
 
     if (parts.length === 2) {
@@ -352,3 +359,8 @@
     }
   });
 </script>
+
+
+
+
+
