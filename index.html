@@ -177,7 +177,7 @@
     </div>
   </div>
 
-  <div class="menu-section">
+  <div class="menu-section Whisky-section">
     <div class="menu-title" onclick="toggleMenu('Whisky')">Whisky</div>
     <div class="menu-items" id="Whisky">
       <ul>
@@ -187,13 +187,18 @@
         <li>Jack Daniels Honey - SHOT 4€ / COPO 8€ / GARRAFA 80€</li>
         <li>Red label - SHOT 3.50€ / COPO 5€/ GARRAFA 90€</li>
         <li>Black label - SHOT 5€ / COPO 10€ / GARRAFA 110€</li>
-        <li>Gold label - COPO  15€ / GARRAFA 150€</li>
-        <li>Green label - COPO 12.50€ / GARRAFA 140€</li>
+        <li>Gold label - COPO 14€ / GARRAFA 150€</li>
+        <li>Green label - COPO 16€ / GARRAFA 140€</li>
+        <li>Blue label - COPO 32€ / GARRAFA 350€</li>
+        <li>Macallan 12 anos D.Cask - COPO 18€ / GARRAFA 180€</li>
+        <li>Macallan 15 anos - COPO 30€ / GARRAFA 285€</li>
+        <li>Macallan 18 anos - COPO 50€ / GARRAFA 600€</li>
+
       </ul>
     </div>
   </div>
 
-<div class="menu-section">
+<div class="menu-section Gin-section">
 <div class="menu-title" onclick="toggleMenu('Gin')">Gin</div>
 <div class="menu-items" id="Gin">
   <ul>
@@ -206,13 +211,17 @@
 </div>
 </div>
 
-<div class="menu-section">
+<div class="menu-section Vodka-section">
 <div class="menu-title" onclick="toggleMenu('Vodka')">Vodka</div>
 <div class="menu-items" id="Vodka">
   <ul>
-    <li>Eristoff/Eristoff Black - 15€</li>
-    <li>Absolut - 25€</li>
-    <li>Ciroc/Ciroc Sabores - 12€</li>
+    <li>Eristoff/Eristoff Black - SHOT 3€ / COPO 5€ / GARRAFA 65€</li>
+    <li>Absolut - SHOT 3.50€ / COPO 7€ / GARRAFA 75€</li>
+    <li>Absolut Mango - SHOT 4.50€ / COPO 8.50€ / GARRAFA 85€</li>
+    <li>Ciroc - SHOT 5€ / COPO 9€ / GARRAFA 100€</li>
+    <li>Ciroc Sabores - SHOT 6€ / COPO 9.50€ / GARRAFA 110€</li>
+    <li>Roberto Cavali - SHOT 9€ / COPO 13€ / GARRAFA 150€</li>
+    <li>Louers - SHOT 12€ / COPO 22€ / GARRAFA 300€</li>
   </ul>
 </div>
 </div>
@@ -272,7 +281,6 @@
     <li>A-AWAY (MANGA, ABACAXI, MENTA)</li>
     <li>KIZZ (MENTA)</li>
     <li>SWISS BOOM (BOMBOM SUÍÇO)</li>
-    <li>I'SS LIE ON THE R.CKS (LIMA, MENTA)</li>
     <hr class="menu-divider">
     <h3>Sabores premium (+2.50€)</h3>
     <li>KIWI</li>
@@ -329,39 +337,44 @@
 </html>
 
 <script>
-  // Seleciona todas as listas de itens
-  const menuSections = document.querySelectorAll('.menu-items ul li');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os itens do menu
+    const menuItems = document.querySelectorAll('.menu-items ul li');
 
-  // Itera por cada item da lista
-  menuSections.forEach(item => {
-    const text = item.textContent.trim(); // Obtém o texto do <li>
+    // Itera por cada item da lista
+    menuItems.forEach(item => {
+      // Verifica se o item pertence às seções Whisky, Gin ou Vodka
+      if (
+        item.closest('.Whisky-section') || 
+        item.closest('.Gin-section') || 
+        item.closest('.Vodka-section')
+      ) {
+        return; // Ignora esses itens e passa para o próximo
+      }
 
-    // Verifica se o item está nas seções Whisky ou Gin
-    if (item.closest('.whisky') || item.closest('.gin')) {
-      return; // Ignora esses itens e passa para o próximo
-    }
+      // Obtém o texto do item e remove espaços extras
+      const text = item.textContent.trim();
 
-    const parts = text.split(' - '); // Divide pelo separador " - "
+      // Divide o texto pelo separador " - "
+      const parts = text.split(' - ');
 
-    if (parts.length === 2) {
-      // Cria os spans para o nome e o preço
-      const itemName = document.createElement('span');
-      itemName.classList.add('item-name');
-      itemName.textContent = parts[0];
+      // Verifica se existem exatamente duas partes (nome e preço)
+      if (parts.length === 2) {
+        // Cria o span para o nome do item
+        const itemName = document.createElement('span');
+        itemName.classList.add('item-name');
+        itemName.textContent = parts[0]; // Nome do item
 
-      const itemPrice = document.createElement('span');
-      itemPrice.classList.add('item-price');
-      itemPrice.textContent = parts[1];
+        // Cria o span para o preço
+        const itemPrice = document.createElement('span');
+        itemPrice.classList.add('item-price');
+        itemPrice.textContent = parts[1]; // Preço do item
 
-      // Limpa o conteúdo do <li> e insere os spans
-      item.textContent = '';
-      item.appendChild(itemName);
-      item.appendChild(itemPrice);
-    }
+        // Limpa o conteúdo do <li> e insere os spans
+        item.textContent = '';
+        item.appendChild(itemName);
+        item.appendChild(itemPrice);
+      }
+    });
   });
 </script>
-
-
-
-
-
